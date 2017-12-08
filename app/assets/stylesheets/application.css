@@ -1,0 +1,102 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+#main-menu-bar {
+    font-size: small;
+}
+
+#landing-image {
+    /* float: left;
+    margin-left: 20%;
+    */
+}
+
+#landing-description {
+    float: left;
+    margin-right: 20%;
+    margin-left: 6em;
+    word-wrap: break-word;
+}
+
+#landing-description .h1, .h2, .h3 {
+    justify-self:  left;
+}
+
+#landing-showcase {
+    display: block;
+    margin: auto;
+}
+
+#card-segment {
+    opacity: .9;
+    border-bottom-width: 6px;
+}
+
+svg {
+    display: block;
+    margin: auto;
+}
+
+#sign-up-box {
+    margin-right: 4em;
+    margin-left: 4em;
+    margin-top: 10em;
+    margin-bottom: 7em;
+}
+
+#index-view-box {
+    margin-top: 5em;
+    margin-bottom: 5em;
+}
+
+#creators-edit-box {
+    margin-top: 7em;
+    margin-left: 2em;
+    margin-right: 2em;
+}
+
+#footer {
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    text-align: center;
+    height: 2em;
+    width: 100%;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+a {
+    color: #101010 !important;
+    text-decoration: none !important;
+}
+
+a:hover {
+    color: orangered !important;
+}
+
+#post-stack-segment {
+    margin-top: 7em;
+    margin-left: 2em;
+    margin-right: 2em;
+}
+
+.field {
+    margin: 1em;
+}

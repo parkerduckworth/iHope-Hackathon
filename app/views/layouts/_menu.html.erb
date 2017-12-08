@@ -1,0 +1,46 @@
+<div id="main-menu-bar" class="ui primary fixed menu">
+
+  <div id="menu-bindler" class="active item">
+    <%= link_to "Bindler", root_path %>
+  </div>
+
+  <div class="item">
+    <%= link_to 'Creators', creators_path %>
+  </div>
+
+  <div class="item">
+    <%= link_to 'Users', users_path %>
+  </div>
+
+  <div class="right menu">
+
+    <% if creator_signed_in? %>
+        <div class="item">
+          <%= link_to 'Edit Profile', edit_creator_registration_path, method: :get %>
+        </div>
+        <div class="item">
+          <%= link_to 'Logout', destroy_creator_session_path, method: :delete %>
+        </div>
+    <% end %>
+
+    <% if user_signed_in? %>
+        <div class="item">
+          <%= link_to 'Edit Profile', edit_user_registration_path, method: :get %>
+        </div>
+        <div class="item">
+          <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+        </div>
+    <% end %>
+
+    <div class="ui item">
+      <%= link_to 'Creator Login', new_creator_session_path %>
+    </div>
+
+    <div class="ui item">
+      <%= link_to 'User Login', new_user_session_path %>
+    </div>
+
+  </div>
+</div>
+
+

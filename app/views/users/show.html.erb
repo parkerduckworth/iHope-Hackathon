@@ -1,0 +1,22 @@
+<div>
+  <%= form_for :user, url: users_path do |f| %>
+      <% if @user.errors.any? %>
+          <% @user.errors.full_messages.each do |msg| %>
+              <div class="alert alert-danger"><%= msg %></div>
+          <% end %>
+      <% end %>
+  <% end %>
+</div><br><br><br>
+<div class="ui column centered horizontally padded  grid">
+  <div>
+    <div align="center">
+      <%= image_tag @user.avatar.url(:index), class: 'ui medium circular image' %>
+    </div>
+    <h1><%= @user.name %></h1>
+    <div class="ui stacked segment">
+      <p>
+        <%= @user.bio %>
+      </p>
+    </div>
+  </div>
+</div>

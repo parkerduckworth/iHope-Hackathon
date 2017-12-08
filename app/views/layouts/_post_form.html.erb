@@ -1,0 +1,16 @@
+<div id="post-stack-segment" class="ui stacked segment">
+<%= simple_form_for([@creator, @creator.posts.build]) do |f| %>
+    <div id="rating-form">
+      <label class="ui orange ribbon label">Blog About It: </label>
+    </div>
+      <div class="ui stacked segment">
+        <div class="field">
+          <%= f.input_field(:title, :placeholder => 'Title') %>
+        </div>
+        <div class="field">
+          <%= f.input_field(:body, :placeholder => 'Once upon a post...') %>
+        </div>
+        <%= f.button :submit, :class => 'ui button'%>
+      </div>
+<% end %>
+</div>

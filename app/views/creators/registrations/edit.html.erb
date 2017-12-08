@@ -1,0 +1,66 @@
+<div id="creators-edit-box" class="ui very padded tall stacked segment">
+  <div class="ui form">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <%= devise_error_messages! %>
+        <div align="center">
+          <%= image_tag @creator.avatar.url(:index), class: 'ui medium circular image' %>
+        </div>
+        <div>
+          Add Your <%= f.label :avatar %>:
+          <%= f.file_field :avatar %>
+        </div>
+
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+        <% end %>
+
+        <div class="ui stacked segment">
+          <label class="ui orange ribbon label">Change your info:</label>
+
+          <div class="field">
+            <%= f.label :name %><br />
+            <%= f.text_field :name, autofocus: true %>
+          </div>
+
+          <div class="field">
+            <%= f.label :bio %><br />
+            <%= f.text_field :bio %>
+          </div>
+
+        </div>
+
+        <div class="ui stacked segment">
+          <label class="ui orange ribbon label">Change your password:</label>
+          <div class="field">
+            <br>
+            <%= f.label :password %>
+            <%= f.password_field(:password, autocomplete: 'off', :placeholder => 'Make it a good one') %>
+            <% if @minimum_password_length %>
+                <br />
+            <% end %>
+          </div>
+
+          <div class="field">
+            <%= f.label :password_confirmation %>
+            <%= f.password_field(:password_confirmation, autocomplete: 'off', :placeholder => 'Make sure it matches') %>
+          </div>
+        </div>
+
+        <div class="ui stacked segment">
+          <div class="field">
+            <%= f.label :current_password %>
+            <%= f.password_field(:current_password, autocomplete: 'off', :placeholder => 'Enter your password to confirm changes')%>
+          </div>
+
+          <div class="actions">
+            <%= f.submit"Update" %>
+          </div>
+        </div>
+    <% end %>
+    <p><%= button_to("Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" },
+                     :class => "ui right floated button", method: :delete) %></p>
+    <button class="ui left floated button"><%= link_to("Back", :back)%></button>
+  </div>
+  <br><br>
+</div>
+<%= render 'layouts/post_form' %>

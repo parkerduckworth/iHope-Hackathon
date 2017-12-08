@@ -1,0 +1,31 @@
+<div id="index-view-box" class="container">
+  <% @creators.each do |creator| %>
+      <div class="flex-item">
+        <div id="card-segment" class="ui raised segment">
+          <div class="ui card">
+            <div class="image">
+              <%= image_tag creator.avatar.url(:index), class: "creator" %>
+            </div>
+            <div class="content">
+              <a class="header" href="/creators/<%= creator.id %>">
+                <%= creator.name %>
+              </a>
+              <div class="meta">
+                <span class="date"><%= creator.remember_created_at %> </span>
+              </div>
+              <div class="description">
+                <p><%= creator.blurb %></p>
+              </div>
+            </div>
+            <!-- keeping this extra content for later use -->
+            <div class="extra content">
+              <a>
+                <i class="user icon"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+  <% end %>
+</div>
+</div>
+<br><br>

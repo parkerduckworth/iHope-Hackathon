@@ -1,0 +1,40 @@
+<div>
+  <%= form_for :creator, url: creators_path do |f| %>
+      <% if @creator.errors.any? %>
+          <% @creator.errors.full_messages.each do |msg| %>
+              <div class="alert alert-danger"><%= msg %></div>
+          <% end %>
+      <% end %>
+  <% end %>
+</div><br><br><br>
+
+
+
+<div class="row">
+
+  <div class="col-md-6">
+    <div align="center">
+      <%= image_tag @creator.avatar.url(:index), class: "creator-photo" %>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div align="center" class="book-info">
+      <h2 class="book-title"><%= @creator.name %></h2>
+      <p class="book-description">Messenger bag microdosing williamsburg, occupy normcore vape 8-bit prism activated charcoal deep v adaptogen tofu hashtag aesthetic sartorial. Gluten-free offal green juice, vexillologist whatever fixie street art art party heirloom austin pop-up. Fingerstache banh mi sriracha, cardigan poutine activated charcoal chillwave snackwave intelligentsia subway tile cliche XOXO echo park quinoa seitan. Cliche pabst crucifix cloud bread before they sold out austin locavore hella next level sartorial gluten-free air plant food truck. La croix microdosing blue bottle church-key biodiesel quinoa. Raclette vice trust fund, yuccie neutra irony quinoa schlitz. Tacos hot chicken chicharrones, cliche affogato wolf keytar succulents chia taiyaki. PBR&B narwhal raclette bushwick meditation wayfarers. </p>
+    </div>
+  </div>
+
+</div>
+
+<hr>
+
+<div align="center">
+  <h3>Donate to <%= @creator.name %></h3>
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+  data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+  data-description="Donate to <%= @creator.name %>"
+  data-amount="1000"
+  data-locale="auto"></script>
+</div>

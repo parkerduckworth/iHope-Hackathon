@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bindler</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <%= csrf_meta_tags %>
+
+    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+    <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
+  </head>
+
+  <body>
+  
+  <%= render 'layouts/menu' %>
+  <%= yield %>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js"></script>
+  <script>
+      function checkTime(i) {
+          if (i < 10) {
+              i = "0" + i;
+          }
+          return i;
+      }
+
+      function startTime() {
+          var today = new Date();
+          var h = today.getHours();
+          var m = today.getMinutes();
+          var s = today.getSeconds();
+          // add a zero in front of numbers<10
+          m = checkTime(m);
+          s = checkTime(s);
+          document.getElementById('time').innerHTML = h + ":" + m + ":" + s;
+          t = setTimeout(function() {
+              startTime()
+          }, 500);
+      }
+      startTime();
+  </script>
+  </body>
+</html>
